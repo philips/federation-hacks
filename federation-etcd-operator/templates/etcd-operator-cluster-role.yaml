@@ -3,6 +3,21 @@ kind: ClusterRole
 metadata:
   name: etcd-operator
 rules:
+### HACK
+rules:
+- apiGroups:
+  - '*'
+  attributeRestrictions: null
+  resources:
+  - '*'
+  verbs:
+  - '*'
+- attributeRestrictions: null
+  nonResourceURLs:
+  - '*'
+  verbs:
+  - '*'
+### HACK
 - apiGroups:
   - extensions
   resources:
