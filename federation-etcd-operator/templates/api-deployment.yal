@@ -15,17 +15,18 @@ spec:
       - name: {{ .Chart.Name }}
         image: "{{ .Values.api.repository }}:{{ .Values.api.tag }}"
         imagePullPolicy: {{ .Values.api.pullPolicy }}
+        command: ["/hyperkube", "federation-apiserver"]
         # See https://kubernetes.io/docs/admin/federation-apiserver/
-        args: ["--anonymous-auth", "--insecure-bind-address", "0.0.0.0", "--etcd-servers", "http://example-etcd-cluster:2379"]
+        args: ["--anonymous-auth", "--insecure-bind-address", "0.0.0.0", "--etcd-servers", "http://example-etcd-cluster:2379", "--service-cluster-ip-range=10.3.0.0/24"]
         ports:
-        - containerPort: {{ .Values.service.internalPort }}
+        - containerPort: {{ .Values.apiService.internalPort }}
         livenessProbe:
           httpGet:
             path: /healthz
-            port: {{ .Values.service.internalPort }}
+            port: {{ .Values.apiService.internalPort }}
         readinessProbe:
           httpGet:
             path: /healthz
-            port: {{ .Values.service.internalPort }}
+            port: {{ .Values.apiService.internalPort }}
         resources:
 {{ toYaml .Values.resources | indent 12 }}

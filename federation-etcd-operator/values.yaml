@@ -1,8 +1,8 @@
 api:
   replicaCount: 1
-  repository: gcr.io/google-containers/federation-apiserver
-  tag: v1.5.5
+  repository: quay.io/coreos/hyperkube
+  tag: v1.5.5_coreos.0
   pullPolicy: IfNotPresent
-api-service:
+apiService:
   internalPort: 8080
   externalPort: 80
