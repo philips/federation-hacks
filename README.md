@@ -23,7 +23,8 @@ kubefed join cluster2 --cluster-context=fed --kubeconfig=kubeconfig  -v=10
 kubefed join cluster3 --cluster-context=fed --kubeconfig=kubeconfig  -v=10
 ```
 
+See the clusters loaded into the federation API:
 
-curl  http://127.0.0.1:8001/api/v1/proxy/namespaces/default/services/warped-dragon-federation-etcd-operator:80/apis/federation/v1beta1/clusters
-
-
+```
+curl  http://127.0.0.1:8001/api/v1/proxy/namespaces/default/services/fed-federation-etcd-operator:80/apis/federation/v1beta1/clusters
+```
