@@ -17,7 +17,7 @@ spec:
         imagePullPolicy: {{ .Values.api.pullPolicy }}
         command: ["/hyperkube", "federation-apiserver"]
         # See https://kubernetes.io/docs/admin/federation-apiserver/
-        args: ["--anonymous-auth", "--insecure-bind-address", "0.0.0.0", "--etcd-servers", "http://example-etcd-cluster:2379", "--service-cluster-ip-range=10.3.0.0/24"]
+        args: ["--anonymous-auth", "--insecure-bind-address", "0.0.0.0", "--etcd-servers", "http://etcd-cluster-federation:2379", "--service-cluster-ip-range=10.3.0.0/24"]
         ports:
         - containerPort: {{ .Values.apiService.internalPort }}
         livenessProbe:
