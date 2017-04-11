@@ -1,0 +1,8 @@
+api:
+  replicaCount: 1
+  repository: gcr.io/google-containers/federation-apiserver
+  tag: v1.5.5
+  pullPolicy: IfNotPresent
+api-service:
+  internalPort: 8080
+  externalPort: 80

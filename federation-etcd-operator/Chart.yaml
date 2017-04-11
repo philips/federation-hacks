@@ -1,0 +1,4 @@
+apiVersion: v1
+description: Deploy federation API backed by etcd Operator cluster
+name: federation-etcd-operator
+version: 0.1.0
